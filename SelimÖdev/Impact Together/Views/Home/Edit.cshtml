@@ -1,0 +1,28 @@
+@model Project
+
+@{
+    ViewData["Title"] = "Edit Project";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="form-group">
+        <label for="Name">Project Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" value="@Model.ProjectName" />
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Project Description</label>
+        <textarea class="form-control" id="Description" name="Description">@Model.ProjectDescription</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Project</button>
+</form>
+
+<br />
+<a href="@Url.Action("Index", "Home")">Back to Project List</a>

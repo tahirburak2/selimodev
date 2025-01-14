@@ -1,0 +1,27 @@
+@model IEnumerable<VolunteerProject>
+@{
+    ViewData["Title"] = "VolunteerDashboard";
+}
+<h2>Katıldığınız Gönüllü Projeler</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Proje Adı</th>
+            <th>Rol</th>
+            <th>Çalışma Saatleri</th>
+            <th>Katkılar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.ProjectName</td>
+                <td>@project.VolunteerRole</td>
+                <td>@project.HoursWorked</td>
+                <td>@project.Contributions</td>
+            </tr>
+        }
+    </tbody>
+</table>

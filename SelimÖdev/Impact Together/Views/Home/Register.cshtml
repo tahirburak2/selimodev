@@ -1,0 +1,24 @@
+@model User
+@{
+    ViewData["Title"] = "Register";
+}
+
+<form asp-action="Register" method="post">
+    <div>
+        <label for="Name">Ad</label>
+        <input type="text" id="Name" name="Name" required />
+    </div>
+    <div>
+        <label for="Email">E-posta</label>
+        <input type="email" id="Email" name="Email" required />
+    </div>
+    <div>
+        <label for="UserType">Kullanıcı Tipi</label>
+        <select id="UserType" name="UserType">
+            <option value="volunteer">Gönüllü</option>
+            <option value="donor">Bağışçı</option>
+            <option value="manager">Yönetici</option>
+        </select>
+    </div>
+    <button type="submit">Kayıt Ol</button>
+</form>

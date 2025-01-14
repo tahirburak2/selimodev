@@ -1,0 +1,43 @@
+@model IEnumerable<Project>  
+@{
+    ViewData["Title"] = "Project List";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.ProjectName</td>
+                <td>@project.ProjectDescription</td>
+                <td>
+                   
+                    <a href="@Url.Action("Edit", "Home", new { id = project.Id })">Edit</a> 
+                    <h2>@project.ProjectName</h2>
+                    <p>@project.ProjectDescription</p>
+
+                    <form method="post" asp-action="JoinProject" asp-route-projectId="@project.Id">
+                        <div>
+                            <label for="VolunteerRole">Gönüllü Rolü</label>
+                            <input type="text" id="VolunteerRole" name="VolunteerRole" required />
+                        </div>
+                        <button type="submit">Gönüllü Olarak Katıl</button>
+                    </form>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create", "Home")" class="btn btn-primary">Create New Project</a>
+
